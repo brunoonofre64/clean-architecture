@@ -14,10 +14,17 @@
 	<name>api</name>
 	<description>Camada infra ioc do projeto clean-archtecture</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.github.brunoonofre64</groupId>
+			<artifactId>infra.ioc</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
