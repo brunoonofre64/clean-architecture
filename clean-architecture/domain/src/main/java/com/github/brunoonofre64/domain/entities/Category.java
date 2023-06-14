@@ -49,18 +49,14 @@ public final class Category {
     }
 
     private void validateName(String name) {
-        DomainExceptionValidations.when(name.isBlank(),
-                ErrorMessage.NAME_REQUIRED);
-
-        DomainExceptionValidations.when(name.length() <= 3,
-                ErrorMessage.NAME_INVALID);
+        DomainExceptionValidations.when(name.isBlank(), ErrorMessage.NAME_REQUIRED);
+        DomainExceptionValidations.when(name.length() <= 3, ErrorMessage.NAME_INVALID);
 
         this.name = name;
     }
 
     private void validateUuid(String uuid) {
-        DomainExceptionValidations.when(uuid == null || uuid.isBlank(),
-                ErrorMessage.UUID_INVALID);
+        DomainExceptionValidations.when(uuid == null || uuid.isBlank(), ErrorMessage.UUID_INVALID);
 
         this.uuid = uuid;
     }
