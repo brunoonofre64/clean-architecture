@@ -3,13 +3,12 @@ package com.github.brunoonofre64.domain.entities;
 import com.github.brunoonofre64.domain.enums.ErrorMessage;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public final class Category {
+public final class Category extends EntityBase {
 
-    private String uuid;
-    private String name;
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public Category(String name) {
         this.validateName(name);
@@ -24,22 +23,6 @@ public final class Category {
         this.validateName(name);
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    private void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-        this.name = name;
-    }
-
     public List<Product> getProducts() {
         return products;
     }
@@ -51,13 +34,11 @@ public final class Category {
     private void validateName(String name) {
         DomainExceptionValidations.when(name.isBlank(), ErrorMessage.NAME_REQUIRED);
         DomainExceptionValidations.when(name.length() <= 3, ErrorMessage.NAME_INVALID);
-
-        this.name = name;
+        super.setName(name);
     }
 
     private void validateUuid(String uuid) {
         DomainExceptionValidations.when(uuid == null || uuid.isBlank(), ErrorMessage.UUID_INVALID);
-
-        this.uuid = uuid;
+        super.setUuid(uuid);
     }
 }
