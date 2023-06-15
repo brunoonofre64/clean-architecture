@@ -15,4 +15,9 @@ public class DomainExceptionValidations extends RuntimeException {
             throw new DomainExceptionValidations(error);
         }
     }
+
+    @Override
+    public String getMessage() {
+        return message.toString();
+    }
 }
