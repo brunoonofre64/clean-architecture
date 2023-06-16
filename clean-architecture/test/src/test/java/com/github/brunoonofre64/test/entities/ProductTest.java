@@ -186,6 +186,18 @@ class ProductTest {
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
 
+    @Test
+    void ShouldTestAll_Getters_WithSuccessfully() {
+        Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, TEXT_DEFAULT);
+
+        assertEquals(UUID_DEFAULT, response.getUuid());
+        assertEquals(TEXT_DEFAULT, response.getName());
+        assertEquals(TEXT_DEFAULT, response.getDescription());
+        assertEquals(DOUBLE_DEFAULT, response.getPrice());
+        assertEquals(INT_DEFAULT, response.getStock());
+        assertEquals(TEXT_DEFAULT, response.getImage());
+    }
+
     private String buildUrlImageInvalid() {
         String urlImageInvalid = "x";
         int count = 0;
