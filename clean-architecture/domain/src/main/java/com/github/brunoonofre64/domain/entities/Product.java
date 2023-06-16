@@ -87,8 +87,8 @@ public final class Product extends EntityBase {
         DomainExceptionValidations.when(description.length() <= 3, ErrorMessage.DESCRIPTION_INVALID);
         DomainExceptionValidations.when(price < 0, ErrorMessage.PRICE_INVALID);
         DomainExceptionValidations.when(stock < 0, ErrorMessage.STOCK_INVALID);
-        DomainExceptionValidations.when(image.isBlank(), ErrorMessage.URL_IMAGE_REQUIRED);
-        DomainExceptionValidations.when(image.length() <= 6 || image.length() > 250, ErrorMessage.URL_IMAGE_INVALID);
+        DomainExceptionValidations.when(image != null && image.isBlank(), ErrorMessage.URL_IMAGE_REQUIRED);
+        DomainExceptionValidations.when(image != null && image.length() > 250, ErrorMessage.URL_IMAGE_INVALID);
 
         super.setName(name);
         this.description = description;
