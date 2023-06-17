@@ -6,7 +6,7 @@ import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Category extends EntityBase {
+public final class Category extends Base {
 
     private List<Product> products = new ArrayList<>();
 
@@ -14,9 +14,10 @@ public final class Category extends EntityBase {
         this.validateName(name);
     }
 
-    public Category(String uuid, String name) {
+    public Category(String uuid, String name, List<Product> products) {
         this.validateName(name);
         this.validateUuid(uuid);
+        this.products = products;
     }
 
     public void update(String name) {

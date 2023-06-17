@@ -1,6 +1,6 @@
 package com.github.brunoonofre64.domain.entities;
 
-public abstract class EntityBase {
+public abstract class Base {
 
     protected String uuid;
     protected String name;

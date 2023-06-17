@@ -1,4 +1,4 @@
-package com.github.brunoonofre64.test.entities;
+package com.github.brunoonofre64.test.domain.entities;
 
 import com.github.brunoonofre64.domain.entities.Product;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;

@@ -3,7 +3,7 @@ package com.github.brunoonofre64.domain.entities;
 import com.github.brunoonofre64.domain.enums.ErrorMessage;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
 
-public final class Product extends EntityBase {
+public final class Product extends Base {
 
     private String description;
     private double price;

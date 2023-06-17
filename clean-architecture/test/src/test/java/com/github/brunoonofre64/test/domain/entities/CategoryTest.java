@@ -1,11 +1,14 @@
-package com.github.brunoonofre64.test.entities;
+package com.github.brunoonofre64.test.domain.entities;
 
 
 import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
+import com.github.brunoonofre64.test.stubs.DomainStubProduct;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static com.github.brunoonofre64.test.UnitTestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +18,7 @@ class CategoryTest {
 
     @Test
     void CreateCategory_WithValidParameters_ResultObjectValid() {
-        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT);
+        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct()));
 
         assertNotNull(response);
         assertEquals(UUID_DEFAULT, response.getUuid());
@@ -25,7 +28,7 @@ class CategoryTest {
     @Test
     void ShouldThrowErrorWhenCreate_NameRequired_ResultAException() {
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> new Category(UUID_DEFAULT, "    "));
+                () -> new Category(UUID_DEFAULT, "    ", List.of(DomainStubProduct.buildDomainProduct())));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -33,7 +36,7 @@ class CategoryTest {
     @Test
     void ShouldThrowErrorWhenCreate_InvalidName_ResultAException() {
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> new Category(UUID_DEFAULT, TEXT_INVALID));
+                () -> new Category(UUID_DEFAULT, TEXT_INVALID, List.of(DomainStubProduct.buildDomainProduct())));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -41,14 +44,14 @@ class CategoryTest {
     @Test
     void ShouldThrowErrorWhenCreate_InvalidUuid_ResultAException() {
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> new Category(null, TEXT_DEFAULT));
+                () -> new Category(null, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct())));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
 
     @Test
     void UpdateCategory_WithValidParameters_ResultObjectValid() {
-        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT);
+        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct()));
         response.update(TEXT_DEFAULT_2);
 
         assertNotNull(response);
@@ -58,7 +61,7 @@ class CategoryTest {
 
     @Test
     void ShouldThrowErrorWhenUpdate_NameRequired_ResultAException() {
-        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT);
+        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct()));
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
                 () -> response.update("    "));
@@ -68,7 +71,7 @@ class CategoryTest {
 
     @Test
     void ShouldThrowErrorWhenUpdate_InvalidName_ResultAException() {
-        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT);
+        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct()));
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
                 () -> response.update(TEXT_INVALID));
@@ -78,7 +81,7 @@ class CategoryTest {
 
     @Test
     void ShouldTestAll_Getters_WithSuccessfully() {
-        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT);
+        Category response = new Category(UUID_DEFAULT, TEXT_DEFAULT, List.of(DomainStubProduct.buildDomainProduct()));
 
         assertEquals(UUID_DEFAULT, response.getUuid());
         assertEquals(TEXT_DEFAULT, response.getName());
