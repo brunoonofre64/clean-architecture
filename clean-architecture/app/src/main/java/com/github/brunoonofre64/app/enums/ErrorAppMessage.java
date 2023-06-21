@@ -1,0 +1,20 @@
+package com.github.brunoonofre64.app.enums;
+
+public enum ErrorAppMessage {
+
+    OBJECT_NULL("OBJECT_NULL"),
+    CATEGORIES_LIST_IS_EMPTY("CATEGORIES_LIST_IS_EMPTY"),
+    CATEGORY_NOT_FOUND("CATEGORY_NOT_FOUND"),
+    PRODUCTS_LIST_IS_EMPTY("PRODUCTS_LIST_IS_EMPTY"),
+    PRODUCT_NOT_FOUND("PRODUCT_NOT_FOUND"),
+    USERNAME_ALREADY_EXISTS("USERNAME_ALREADY_EXISTS"),
+    CURRENT_PASSWORD_INCORRECT("CURRENT_PASSWORD_INCORRECT"),
+    USER_LIST_IS_EMPTY("USER_LIST_IS_EMPTY"),
+    USER_NOT_FOUND("USER_NOT_FOUND");
+
+    final String value;
+
+    ErrorAppMessage(String value) {
+        this.value = value;
+    }
+}
