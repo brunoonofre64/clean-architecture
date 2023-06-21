@@ -2,8 +2,10 @@ package com.github.brunoonofre64.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan({"com.github.brunoonofre64.infra.security", "com.github.brunoonofre64.infra.config"})
 public class ApiApplication {
 
 	public static void main(String[] args) {
