@@ -11,7 +11,6 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, String>, IProductRepository {
     @Override
     Optional<Product> findByUuid(String uuid);
-
     @Override
     void deleteByUuid(String uuid);
 }

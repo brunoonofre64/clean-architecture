@@ -1,6 +1,6 @@
 package com.github.brunoonofre64.infra.entitiesrelationship;
 
-import com.github.brunoonofre64.infra.enums.Role;
+import com.github.brunoonofre64.domain.enums.Roles;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -21,15 +21,15 @@ public class UserEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Roles roles;
 
 
-    public Role getRole() {
-        return role;
+    public Roles getRole() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRole(Roles role) {
+        this.roles = role;
     }
 
     @PrePersist
