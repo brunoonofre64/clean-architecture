@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICategoryRepository {
-    Category save(Category category);
+    void save(Category category);
     Optional<Category> findByUuid(String uuid);
     List<Category> findAll();
     void deleteByUuid(String uuid);

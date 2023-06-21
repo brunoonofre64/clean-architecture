@@ -9,7 +9,6 @@ public final class Product extends Base {
     private double price;
     private int stock;
     private String image;
-    private String categoryUuid;
     private Category category;
 
     public Product(String uuid, String name, String description, double price,
@@ -20,10 +19,9 @@ public final class Product extends Base {
     }
 
     public Product(String name, String description, double price,
-                   int stock, String image, String categoryUuid) {
+                   int stock, String image) {
 
         this.validateDomain(name, description, price, stock, image);
-        this.categoryUuid = categoryUuid;
     }
 
     public void update(String name, String description, double price,
@@ -62,14 +60,6 @@ public final class Product extends Base {
 
     private void setImage(String image) {
         this.image = image;
-    }
-
-    public String getCategoryUuid() {
-        return categoryUuid;
-    }
-
-    public void setCategoryUuid(String categoryUuid) {
-        this.categoryUuid = categoryUuid;
     }
 
     public Category getCategory() {
