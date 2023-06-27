@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("io.github.brunoonofre64.dslist.api.v1"))
+                .apis(RequestHandlerSelectors.basePackage("com.github.brunoonofre64.api.v1"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());

@@ -11,42 +11,37 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 
 @ControllerAdvice
 public class ExceptionHandle {
     private static final String BAD_REQUEST = "BAD REQUEST";
     private static final LocalDateTime TIMESTAMP = LocalDateTime.now();
 
-    private final Map<String, ReloadableResourceBundleMessageSource> messageSources;
+    private final ReloadableResourceBundleMessageSource messageSource;
 
-    public ExceptionHandle(Map<String, ReloadableResourceBundleMessageSource> messageSources) {
-        this.messageSources = messageSources;
+    public ExceptionHandle(ReloadableResourceBundleMessageSource messageSource) {
+        this.messageSource = messageSource;
     }
 
     @ExceptionHandler(DomainExceptionValidations.class)
     public ResponseEntity<ErrorResponse> handlerDomainExceptionValidations(DomainExceptionValidations ex) {
-        return handleException(ex, "domainException");
+        ErrorResponse errorResponse = new ErrorResponse(BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), TIMESTAMP, this.getCodeMessage(ex.getMessage()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(AppExceptionValidations.class)
     public ResponseEntity<ErrorResponse> handlerAppExceptionValidations(AppExceptionValidations ex) {
-        return handleException(ex, "apiException");
+        ErrorResponse errorResponse = new ErrorResponse(BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), TIMESTAMP, this.getCodeMessage(ex.getMessage()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(InfraDataExceptionValidations.class)
     public ResponseEntity<ErrorResponse> handlerInfraDataExceptionValidations(InfraDataExceptionValidations ex) {
-        return handleException(ex, "infraDataException");
-    }
-
-    private ResponseEntity<ErrorResponse> handleException(Exception ex, String messageSourceQualifier) {
-        String message = this.getCodeMessage(ex.getMessage(), messageSourceQualifier);
-        ErrorResponse errorResponse = new ErrorResponse(BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), TIMESTAMP, message);
+        ErrorResponse errorResponse = new ErrorResponse(BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), TIMESTAMP, this.getCodeMessage(ex.getMessage()));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
-    private String getCodeMessage(String codigoMensagem, String messageSourceQualifier) {
-        ReloadableResourceBundleMessageSource messageSource = messageSources.get(messageSourceQualifier);
+    private String getCodeMessage(String codigoMensagem) {
         return messageSource.getMessage(codigoMensagem, null, LocaleContextHolder.getLocale());
     }
 }
