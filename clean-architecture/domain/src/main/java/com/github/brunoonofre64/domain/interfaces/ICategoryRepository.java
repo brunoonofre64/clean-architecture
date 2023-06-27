@@ -10,5 +10,4 @@ public interface ICategoryRepository {
     Optional<Category> findByUuid(String uuid);
     List<Category> findAll();
     void deleteByUuid(String uuid);
-
 }

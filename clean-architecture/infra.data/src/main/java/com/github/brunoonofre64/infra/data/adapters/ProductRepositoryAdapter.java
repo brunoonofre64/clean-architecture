@@ -89,4 +89,12 @@ public class ProductRepositoryAdapter implements IProductRepository {
             throw new InfraDataExceptionValidations(ErrorInfraDataMessage.PRODUCT_NOT_FOUND);
         }
     }
+
+    @Override
+    public List<Product> findProductsByCategoryUuid(String uuid) {
+        return productRepository.findProductsByCategoryUuid(uuid)
+                .stream()
+                .map(productDataMapper::toDomain)
+                .collect(Collectors.toList());
+    }
 }

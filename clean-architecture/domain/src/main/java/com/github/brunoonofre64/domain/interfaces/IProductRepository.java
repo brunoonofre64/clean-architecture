@@ -10,4 +10,5 @@ public interface IProductRepository {
     List<Product> findAll();
     Optional<Product> findByUuid(String uuid);
     void deleteByUuid(String uuid);
+    List<Product> findProductsByCategoryUuid(String uuid);
 }
