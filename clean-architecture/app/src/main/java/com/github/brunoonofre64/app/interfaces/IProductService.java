@@ -9,4 +9,5 @@ public interface IProductService {
     List<ProductDTO> findAll();
     ProductDTO update(String uuid, ProductDTO dto);
     void deleteByUuid(String uuid);
+    ProductDTO findByUuid(String uuid);
 }

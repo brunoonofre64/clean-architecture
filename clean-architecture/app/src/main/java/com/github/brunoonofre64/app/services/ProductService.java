@@ -30,7 +30,7 @@ public class ProductService implements IProductService {
 
     @Override
     public ProductDTO save(ProductDTO dto) {
-         AppExceptionValidations.when(dto == null,
+        AppExceptionValidations.when(dto == null,
                 ErrorAppMessage.OBJECT_NULL);
 
         Product product = productAppMapper.toDomain(dto);
@@ -65,7 +65,7 @@ public class ProductService implements IProductService {
 
         Category category = null;
         if (dto.getCategoryUuid() != null) {
-             category = categoryRepository.findByUuid(dto.getCategoryUuid())
+            category = categoryRepository.findByUuid(dto.getCategoryUuid())
                     .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.CATEGORY_NOT_FOUND));
 
             product.setCategory(category);
@@ -91,5 +91,13 @@ public class ProductService implements IProductService {
         } catch (Exception ex) {
             throw new AppExceptionValidations(ErrorAppMessage.PRODUCT_NOT_FOUND);
         }
+    }
+
+    @Override
+    public ProductDTO findByUuid(String uuid) {
+        Product product = productRepository.findByUuid(uuid)
+                .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.PRODUCT_NOT_FOUND));
+
+         return productAppMapper.toDTO(product, product.getCategory());
     }
 }

@@ -36,8 +36,15 @@ public class ProductController {
         return productService.update(uuid, dto);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{uuid}")
     public void deleteByUuid(@PathVariable String uuid) {
         productService.deleteByUuid(uuid);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{uuid}")
+    public ProductDTO findByUuid(@PathVariable String uuid) {
+        return productService.findByUuid(uuid);
     }
 }

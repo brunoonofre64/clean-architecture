@@ -6,8 +6,11 @@ import com.github.brunoonofre64.app.interfaces.ICategoryService;
 import com.github.brunoonofre64.app.mappers.CategoryAppMapper;
 import com.github.brunoonofre64.app.validations.AppExceptionValidations;
 import com.github.brunoonofre64.domain.entities.Category;
+import com.github.brunoonofre64.domain.entities.Product;
 import com.github.brunoonofre64.domain.interfaces.ICategoryRepository;
+import com.github.brunoonofre64.domain.interfaces.IProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,10 +19,12 @@ import java.util.stream.Collectors;
 public class CategoryService implements ICategoryService {
 
     private final ICategoryRepository categoryRepository;
+    private final IProductRepository productRepository;
     private final CategoryAppMapper categoryAppMapper;
 
-    public CategoryService(ICategoryRepository categoryRepository, CategoryAppMapper categoryAppMapper) {
+    public CategoryService(ICategoryRepository categoryRepository, IProductRepository productRepository, CategoryAppMapper categoryAppMapper) {
         this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
         this.categoryAppMapper = categoryAppMapper;
     }
 
@@ -65,6 +70,12 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public void deleteByUuid(String uuid) {
+        List<Product> productsOfCategory = productRepository.findProductsByCategoryUuid(uuid);
+
+        if (!CollectionUtils.isEmpty(productsOfCategory)) {
+            throw new AppExceptionValidations(ErrorAppMessage.CONSTRAINT_VIOLATION);
+        }
+
         try {
             categoryRepository.deleteByUuid(uuid);
         } catch (Exception ex) {
