@@ -14,7 +14,7 @@ public class MessageBundleConfig {
     public ReloadableResourceBundleMessageSource domainExceptionMessageSource() {
         ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
         bundle.setDefaultEncoding(DEFAULT_ENCODING);
-        bundle.setBasename("classpath:domain-exception");
+        bundle.setBasename("classpath:messages_domain_exception");
         return bundle;
     }
 
@@ -23,7 +23,7 @@ public class MessageBundleConfig {
     public ReloadableResourceBundleMessageSource apiExceptionMessageSource() {
         ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
         bundle.setDefaultEncoding(DEFAULT_ENCODING);
-        bundle.setBasename("classpath:api-exception");
+        bundle.setBasename("classpath:messages_api_exception");
         return bundle;
     }
 
@@ -32,7 +32,7 @@ public class MessageBundleConfig {
     public ReloadableResourceBundleMessageSource infraDataExceptionMessageSource() {
         ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
         bundle.setDefaultEncoding(DEFAULT_ENCODING);
-        bundle.setBasename("classpath:infradata-exception");
+        bundle.setBasename("classpath:messages_infradata_exception");
         return bundle;
     }
 }
