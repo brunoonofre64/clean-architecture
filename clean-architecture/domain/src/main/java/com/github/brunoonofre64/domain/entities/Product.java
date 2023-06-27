@@ -15,19 +15,19 @@ public final class Product extends Base {
                    int stock, String image) {
 
        this.validateUuid(uuid);
-       this.validateDomain(name, description, price, stock, image);
+       this.validateDomain(name, description, price, stock, image, null);
     }
 
     public Product(String name, String description, double price,
                    int stock, String image) {
 
-        this.validateDomain(name, description, price, stock, image);
+        this.validateDomain(name, description, price, stock, image, null);
     }
 
     public void update(String name, String description, double price,
-                       int stock, String image) {
+                       int stock, String image, Category category) {
 
-       this.validateDomain(name, description, price, stock, image);
+       this.validateDomain(name, description, price, stock, image, category);
     }
 
     public String getDescription() {
@@ -70,7 +70,7 @@ public final class Product extends Base {
         this.category = category;
     }
 
-    private void validateDomain(String name, String description, double price, int stock, String image) {
+    private void validateDomain(String name, String description, double price, int stock, String image, Category category) {
         DomainExceptionValidations.when(name.isBlank(), ErrorMessage.NAME_REQUIRED);
         DomainExceptionValidations.when(name.length() <= 3, ErrorMessage.NAME_INVALID);
         DomainExceptionValidations.when(description.isBlank(), ErrorMessage.DESCRIPTION_REQUIRED);
@@ -85,6 +85,10 @@ public final class Product extends Base {
         this.price = price;
         this.stock = stock;
         this.image = image;
+
+        if (category != null) {
+            this.category = category;
+        }
     }
 
     private void validateUuid(String uuid) {

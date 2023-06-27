@@ -3,7 +3,7 @@ package com.github.brunoonofre64.app.services;
 import com.github.brunoonofre64.app.dtos.CategoryDTO;
 import com.github.brunoonofre64.app.enums.ErrorAppMessage;
 import com.github.brunoonofre64.app.interfaces.ICategoryService;
-import com.github.brunoonofre64.app.mappers.CategoryMapper;
+import com.github.brunoonofre64.app.mappers.CategoryAppMapper;
 import com.github.brunoonofre64.app.validations.AppExceptionValidations;
 import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.interfaces.ICategoryRepository;
@@ -15,15 +15,12 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryService implements ICategoryService {
 
-    private ICategoryRepository categoryRepository;
-    private CategoryMapper categoryMapper;
+    private final ICategoryRepository categoryRepository;
+    private final CategoryAppMapper categoryAppMapper;
 
-    public CategoryService(ICategoryRepository categoryRepository, CategoryMapper categoryMapper) {
+    public CategoryService(ICategoryRepository categoryRepository, CategoryAppMapper categoryAppMapper) {
         this.categoryRepository = categoryRepository;
-        this.categoryMapper = categoryMapper;
-    }
-
-    public CategoryService() {
+        this.categoryAppMapper = categoryAppMapper;
     }
 
     @Override
@@ -31,9 +28,11 @@ public class CategoryService implements ICategoryService {
         AppExceptionValidations.when(dto == null,
                 ErrorAppMessage.OBJECT_NULL);
 
-        Category category = categoryMapper.toDomain(dto);
-        categoryRepository.save(category);
-        return categoryMapper.toDTO(category);
+        Category category = categoryAppMapper.toDomain(dto);
+
+        category = categoryRepository.save(category);
+
+        return categoryAppMapper.toDTO(category);
     }
 
     @Override
@@ -45,7 +44,7 @@ public class CategoryService implements ICategoryService {
 
         return categories
                 .stream()
-                .map(category -> categoryMapper.toDTO(category))
+                .map(categoryAppMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
@@ -61,7 +60,7 @@ public class CategoryService implements ICategoryService {
 
         categoryRepository.save(category);
 
-        return categoryMapper.toDTO(category);
+        return categoryAppMapper.toDTO(category);
     }
 
     @Override

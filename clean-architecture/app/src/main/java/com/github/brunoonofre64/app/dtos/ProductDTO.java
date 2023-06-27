@@ -1,14 +1,17 @@
 package com.github.brunoonofre64.app.dtos;
 
 public class ProductDTO {
+    private String uuid;
     private String name;
     private String description;
     private double price;
     private int stock;
     private String image;
     private String categoryUuid;
+    private CategoryDTO categoryDTO;
 
-    public ProductDTO(String name, String description, double price, int stock, String image, String categoryUuid) {
+    public ProductDTO(String uuid, String name, String description, double price, int stock, String image, String categoryUuid) {
+        this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -63,5 +66,21 @@ public class ProductDTO {
 
     public void setCategoryUuid(String categoryUuid) {
         this.categoryUuid = categoryUuid;
+    }
+
+    public CategoryDTO getCategoryDTO() {
+        return categoryDTO;
+    }
+
+    public void setCategoryDTO(CategoryDTO categoryDTO) {
+        this.categoryDTO = categoryDTO;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

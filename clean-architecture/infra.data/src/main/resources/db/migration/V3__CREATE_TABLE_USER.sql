@@ -1,8 +1,0 @@
-CREATE TABLE TB_USER
-(
-    UUID VARCHAR(255) NOT NULL,
-    login VARCHAR(255),
-    password VARCHAR(255),
-    role VARCHAR(20),
-    PRIMARY KEY (UUID)
-);

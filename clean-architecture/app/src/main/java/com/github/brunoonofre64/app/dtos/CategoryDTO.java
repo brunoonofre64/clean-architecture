@@ -1,16 +1,16 @@
 package com.github.brunoonofre64.app.dtos;
 
 public class CategoryDTO {
-    private String productUuid;
+    private String uuid;
     private String name;
 
     public CategoryDTO(String name) {
         this.name = name;
     }
 
-    public CategoryDTO(String productUuid, String name) {
-        this.productUuid = productUuid;
+    public CategoryDTO(String uuid, String name) {
         this.name = name;
+        this.uuid = uuid;
     }
 
     public String getName() {
@@ -21,11 +21,11 @@ public class CategoryDTO {
         this.name = name;
     }
 
-    public String getProductUuid() {
-        return productUuid;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setProductUuid(String productUuid) {
-        this.productUuid = productUuid;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

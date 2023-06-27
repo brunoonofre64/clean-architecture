@@ -3,9 +3,11 @@ package com.github.brunoonofre64.app.services;
 import com.github.brunoonofre64.app.dtos.ProductDTO;
 import com.github.brunoonofre64.app.enums.ErrorAppMessage;
 import com.github.brunoonofre64.app.interfaces.IProductService;
-import com.github.brunoonofre64.app.mappers.ProductMapper;
+import com.github.brunoonofre64.app.mappers.ProductAppMapper;
 import com.github.brunoonofre64.app.validations.AppExceptionValidations;
+import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.entities.Product;
+import com.github.brunoonofre64.domain.interfaces.ICategoryRepository;
 import com.github.brunoonofre64.domain.interfaces.IProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,27 +17,31 @@ import java.util.stream.Collectors;
 @Service
 public class ProductService implements IProductService {
 
-    private IProductRepository productRepository;
-    private ProductMapper productMapper;
+    private final IProductRepository productRepository;
+    private final ICategoryRepository categoryRepository;
+    private final ProductAppMapper productAppMapper;
 
-    public ProductService(IProductRepository productRepository, ProductMapper productMapper) {
+    public ProductService(IProductRepository productRepository, ICategoryRepository categoryRepository,
+                          ProductAppMapper productAppMapper) {
         this.productRepository = productRepository;
-        this.productMapper = productMapper;
-    }
-
-    public ProductService() {
+        this.categoryRepository = categoryRepository;
+        this.productAppMapper = productAppMapper;
     }
 
     @Override
     public ProductDTO save(ProductDTO dto) {
-        AppExceptionValidations.when(dto == null,
+         AppExceptionValidations.when(dto == null,
                 ErrorAppMessage.OBJECT_NULL);
 
-        Product product = productMapper.toDomain(dto);
+        Product product = productAppMapper.toDomain(dto);
 
-        productRepository.save(product);
+        Category category = categoryRepository.findByUuid(dto.getCategoryUuid())
+                .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.CATEGORY_NOT_FOUND));
 
-        return productMapper.toDTO(product);
+        product.setCategory(category);
+        product = productRepository.save(product);
+
+        return productAppMapper.toDTO(product, product.getCategory());
     }
 
     @Override
@@ -46,7 +52,7 @@ public class ProductService implements IProductService {
 
         return products
                 .stream()
-                .map(product -> productMapper.toDTO(product))
+                .map(product -> productAppMapper.toDTO(product, product.getCategory()))
                 .collect(Collectors.toList());
     }
 
@@ -57,16 +63,25 @@ public class ProductService implements IProductService {
         Product product = productRepository.findByUuid(uuid)
                 .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.PRODUCT_NOT_FOUND));
 
+        Category category = null;
+        if (dto.getCategoryUuid() != null) {
+             category = categoryRepository.findByUuid(dto.getCategoryUuid())
+                    .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.CATEGORY_NOT_FOUND));
+
+            product.setCategory(category);
+        }
+
         product.update(
                 dto.getName(),
                 dto.getDescription(),
                 dto.getPrice(),
                 dto.getStock(),
-                dto.getImage());
+                dto.getImage(),
+                category);
 
-        productRepository.save(product);
+        product = productRepository.save(product);
 
-        return productMapper.toDTO(product);
+        return productAppMapper.toDTO(product, product.getCategory());
     }
 
     @Override

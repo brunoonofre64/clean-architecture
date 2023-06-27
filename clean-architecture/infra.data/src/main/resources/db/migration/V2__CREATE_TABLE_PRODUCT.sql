@@ -1,6 +1,6 @@
 CREATE TABLE TB_PRODUCT
 (
-    UUID          VARCHAR(255) NOT NULL,
+    UUID          VARCHAR(36) NOT NULL,
     name          VARCHAR(255),
     description   VARCHAR(255),
     price         DOUBLE,

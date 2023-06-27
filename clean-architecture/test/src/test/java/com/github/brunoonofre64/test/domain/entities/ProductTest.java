@@ -1,7 +1,9 @@
 package com.github.brunoonofre64.test.domain.entities;
 
+import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.entities.Product;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
+import com.github.brunoonofre64.test.stubs.DomainStubCategory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -11,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ProductTest {
+
+    private static final Category PRODUCT = DomainStubCategory.buildCategory();
 
     @Test
     void CreateProduct_WithValidParameters_ResultObjectValid() {
@@ -94,7 +98,7 @@ class ProductTest {
     void UpdateProduct_WithValidParameters_ResultObjectValid() {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
-        response.update(TEXT_DEFAULT_2, TEXT_DEFAULT_2, DOUBLE_DEFAULT_2, INT_DEFAULT_2, null);
+        response.update(TEXT_DEFAULT_2, TEXT_DEFAULT_2, DOUBLE_DEFAULT_2, INT_DEFAULT_2, TEXT_DEFAULT_2, PRODUCT);
 
         assertNotNull(response);
         assertEquals(UUID_DEFAULT, response.getUuid());
@@ -109,7 +113,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update("    ", TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null));
+                () -> response.update("    ", TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -119,7 +123,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_INVALID, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null));
+                () -> response.update(TEXT_INVALID, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -129,7 +133,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_DEFAULT, "    ", DOUBLE_DEFAULT, INT_DEFAULT, null));
+                () -> response.update(TEXT_DEFAULT, "    ", DOUBLE_DEFAULT, INT_DEFAULT, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -139,7 +143,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_DEFAULT, TEXT_INVALID, DOUBLE_DEFAULT, INT_DEFAULT, null));
+                () -> response.update(TEXT_DEFAULT, TEXT_INVALID, DOUBLE_DEFAULT, INT_DEFAULT, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -149,7 +153,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, -1L, INT_DEFAULT, null));
+                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, -1L, INT_DEFAULT, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -159,7 +163,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, -1, null));
+                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, -1, null, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -169,7 +173,7 @@ class ProductTest {
         Product response = new Product(UUID_DEFAULT, TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, null);
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, "    "));
+                () -> response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, "    ", PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
@@ -181,7 +185,7 @@ class ProductTest {
         String urlImageInvalid = this.buildUrlImageInvalid();
 
         Throwable ex = assertThrows(DomainExceptionValidations.class,
-                () ->  response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, urlImageInvalid));
+                () ->  response.update(TEXT_DEFAULT, TEXT_DEFAULT, DOUBLE_DEFAULT, INT_DEFAULT, urlImageInvalid, PRODUCT));
 
         assertEquals(DomainExceptionValidations.class, ex.getClass());
     }
