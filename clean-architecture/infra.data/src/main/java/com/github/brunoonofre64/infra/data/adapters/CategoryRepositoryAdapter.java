@@ -29,7 +29,7 @@ public class CategoryRepositoryAdapter implements ICategoryRepository {
     @Transactional
     public Category save(Category category) {
         CategoryEntity categoryEntity = mapper.toEntity(category);
-        categoryRepository.save(categoryEntity);
+        categoryEntity = categoryRepository.save(categoryEntity);
         return mapper.toDomain(categoryEntity);
     }
 

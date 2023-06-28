@@ -9,4 +9,5 @@ public interface UnitTestConstants {
     double DOUBLE_DEFAULT_2 = 2L;
     int INT_DEFAULT = 1;
     int INT_DEFAULT_2 = 2;
+    int ZERO = 0;
 }

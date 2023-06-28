@@ -22,7 +22,8 @@ public class CategoryService implements ICategoryService {
     private final IProductRepository productRepository;
     private final CategoryAppMapper categoryAppMapper;
 
-    public CategoryService(ICategoryRepository categoryRepository, IProductRepository productRepository, CategoryAppMapper categoryAppMapper) {
+    public CategoryService(ICategoryRepository categoryRepository,
+                           IProductRepository productRepository, CategoryAppMapper categoryAppMapper) {
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
         this.categoryAppMapper = categoryAppMapper;
@@ -63,7 +64,7 @@ public class CategoryService implements ICategoryService {
 
         category.update(dto.getName());
 
-        categoryRepository.save(category);
+        category = categoryRepository.save(category);
 
         return categoryAppMapper.toDTO(category);
     }
