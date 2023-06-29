@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"com.github.brunoonofre64.infra", "com.github.brunoonofre64.app", "com.github.brunoonofre64.api"})
+@ComponentScan({"com.github.brunoonofre64.infra.data", "com.github.brunoonofre64.infra.ioc", "com.github.brunoonofre64.app", "com.github.brunoonofre64.api"})
 @EnableJpaRepositories({"com.github.brunoonofre64.infra.data.repositories", "com.github.brunoonofre64.infra.data.adapters"})
 @EntityScan("com.github.brunoonofre64.infra.data.entities")
 public class ApiApplication {

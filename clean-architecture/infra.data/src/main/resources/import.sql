@@ -18,10 +18,8 @@ INSERT INTO TB_PRODUCT(UUID, name, description, price, stock, image, category_uu
 INSERT INTO TB_PRODUCT(UUID, name, description, price, stock, image, category_uuid) VALUES ('1101f0a8-675e-46c5-a449-b0f3f2c81d6m', 'Calça Jeans', 'Calça Jeans estilosa', 80.00, 200, 'url_imagem', '46b920fa-af3a-4e2d-a408-fa821a947a5f');
 INSERT INTO TB_PRODUCT(UUID, name, description, price, stock, image, category_uuid) VALUES ('9901f0a8-675e-46c5-a449-b0f3f2c81d6n', 'Vestido', 'Vestido estiloso', 100.00, 100, 'url_imagem', '46b920fa-af3a-4e2d-a408-fa821a947a5f');
 
--- INSERT INTO TB_USER(UUID, username, password) VALUES ('d48f0a57-72b2-4b3f-8b15-2b79c6ad8fb8', 'admin', '$2a$12$mMqys4.Z2iqK.5Qyt2Mcx.quRvCPms/zrKYDd89zklSce9rpGouYG');
--- INSERT INTO TB_USER(UUID, username, password) VALUES ('4c9e4e39-4a42-4a8e-8c14-204e981a8e3a', 'user', '$2a$12$5NUHYk53NofXUJeLCpqT5.F3FN/7irmZuAA/RvAgdW4w41YLt6sja');
--- INSERT INTO TB_USER(UUID, username, password) VALUES ('72c02c0c-e353-49c1-a1ee-d6122513d59e', 'guest', '$2a$12$tQTQtol77RA8cx13UmNSKeQH.uVmN1NQSla0HA.VtNi3hBkiHE7Q2');
+INSERT INTO TB_USER(UUID, username, password) VALUES ('d48f0a57-72b2-4b3f-8b15-2b79c6ad8fb8', 'admin', '$2a$12$mMqys4.Z2iqK.5Qyt2Mcx.quRvCPms/zrKYDd89zklSce9rpGouYG');
+INSERT INTO TB_USER(UUID, username, password) VALUES ('72c02c0c-e353-49c1-a1ee-d6122513d59e', 'guest', '$2a$12$tQTQtol77RA8cx13UmNSKeQH.uVmN1NQSla0HA.VtNi3hBkiHE7Q2');
 
--- INSERT INTO TB_USER_ROLES(USER_UUID, ROLES) VALUES ('d48f0a57-72b2-4b3f-8b15-2b79c6ad8fb8', 'admin');
--- INSERT INTO TB_USER_ROLES(USER_UUID, ROLES) VALUES ('4c9e4e39-4a42-4a8e-8c14-204e981a8e3a', 'user');
--- INSERT INTO TB_USER_ROLES(USER_UUID, ROLES) VALUES ('72c02c0c-e353-49c1-a1ee-d6122513d59e', 'guest');
+INSERT INTO TB_USER_ROLES(USER_UUID, ROLES) VALUES ('d48f0a57-72b2-4b3f-8b15-2b79c6ad8fb8', 'ADMIN');
+INSERT INTO TB_USER_ROLES(USER_UUID, ROLES) VALUES ('72c02c0c-e353-49c1-a1ee-d6122513d59e', 'GUEST');
