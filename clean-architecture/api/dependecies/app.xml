@@ -1,0 +1,5 @@
+<dependency>
+    <groupId>com.github.brunoonofre64</groupId>
+    <artifactId>app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
