@@ -3,7 +3,7 @@ package com.github.brunoonofre64.test.domain.entities;
 import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.entities.Product;
 import com.github.brunoonofre64.domain.validations.DomainExceptionValidations;
-import com.github.brunoonofre64.test.stubs.DomainStubCategory;
+import com.github.brunoonofre64.test.stubs.CategoryStubs;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class ProductTest {
 
-    private static final Category PRODUCT = DomainStubCategory.buildCategory();
+    private static final Category PRODUCT = CategoryStubs.buildCategory();
 
     @Test
     void CreateProduct_WithValidParameters_ResultObjectValid() {

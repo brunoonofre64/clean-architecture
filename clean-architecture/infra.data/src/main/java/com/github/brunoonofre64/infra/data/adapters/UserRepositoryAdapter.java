@@ -38,9 +38,10 @@ public class UserRepositoryAdapter implements IUserRepository {
 
     @Override
     @Transactional
-    public void save(User user) {
+    public User save(User user) {
         UserEntity userEntity = mapper.toEntity(user);
         userRepository.save(userEntity);
+        return mapper.toDomain(userEntity);
     }
 
     @Override

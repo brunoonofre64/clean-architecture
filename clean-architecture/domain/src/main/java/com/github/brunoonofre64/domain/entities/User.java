@@ -13,9 +13,7 @@ public final class User {
     private List<Roles> roles;
 
     public User(String username, String password, List<Roles> roles) {
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
+        this.validateUser(username, password, roles);
     }
 
     public User(String uuid, String username, String password, List<Roles> roles) {

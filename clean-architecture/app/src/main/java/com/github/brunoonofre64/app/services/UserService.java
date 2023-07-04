@@ -41,7 +41,7 @@ public class UserService implements IUserService {
         String bcryptPasswordEncoded = securityService.encode(userDTO.getPassword());
         User user = userAppMapper.toEntity(userDTO, bcryptPasswordEncoded);
 
-        userRepository.save(user);
+        user = userRepository.save(user);
 
         return userAppMapper.toDTO(user);
     }
@@ -55,7 +55,7 @@ public class UserService implements IUserService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.USER_NOT_FOUND));
 
-        if (securityService.matchesPassword(updateDTO.getCurrentPassword(), user.getPassword())) {
+        if (!securityService.matchesPassword(updateDTO.getCurrentPassword(), user.getPassword())) {
             throw new AppExceptionValidations(ErrorAppMessage.CURRENT_PASSWORD_INCORRECT);
         }
 
@@ -73,7 +73,7 @@ public class UserService implements IUserService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new AppExceptionValidations(ErrorAppMessage.USER_NOT_FOUND));
 
-        if (securityService.matchesPassword(password.getCurrentPassword(), user.getPassword())) {
+        if (!securityService.matchesPassword(password.getCurrentPassword(), user.getPassword())) {
             throw new AppExceptionValidations(ErrorAppMessage.CURRENT_PASSWORD_INCORRECT);
         }
 

@@ -8,4 +8,12 @@ public class UserResponseDTO {
         this.uuidUser = uuidUser;
         this.username = username;
     }
+
+    public String getUuidUser() {
+        return uuidUser;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 }

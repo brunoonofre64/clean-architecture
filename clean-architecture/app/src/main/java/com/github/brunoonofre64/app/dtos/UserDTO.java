@@ -24,4 +24,10 @@ public class UserDTO {
     public void setRoles(List<Roles> roles) {
         this.roles = roles;
     }
+
+    public UserDTO(String username, String password, List<Roles> roles) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 }

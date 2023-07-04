@@ -8,8 +8,8 @@ import com.github.brunoonofre64.domain.entities.Category;
 import com.github.brunoonofre64.domain.entities.Product;
 import com.github.brunoonofre64.domain.interfaces.ICategoryRepository;
 import com.github.brunoonofre64.domain.interfaces.IProductRepository;
-import com.github.brunoonofre64.test.stubs.DomainStubCategory;
-import com.github.brunoonofre64.test.stubs.DomainStubProduct;
+import com.github.brunoonofre64.test.stubs.CategoryStubs;
+import com.github.brunoonofre64.test.stubs.ProductStubs;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -154,8 +154,8 @@ class CategoryServiceTest {
     }
 
     private void buildArrangeOfTests() {
-        category = DomainStubCategory.buildCategory();
-        categoryDTO = DomainStubCategory.buildCategoryDTO();
-        product = DomainStubProduct.buildDomainProduct();
+        category = CategoryStubs.buildCategory();
+        categoryDTO = CategoryStubs.buildCategoryDTO();
+        product = ProductStubs.buildDomainProduct();
     }
 }
