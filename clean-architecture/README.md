@@ -19,7 +19,7 @@
 
 * JDK 11 [Dowload JDK](https://www.oracle.com/java/technologies/downloads/#java11)
 * Clone o repositório do projeto:
-* Clone HTTPS: https://github.com/brunoonofre64/dslist.git
+* Clone HTTPS: https://github.com/brunoonofre64/clean-architecture.git
 * Abra o projeto em sua IDE favorita (por exemplo, IntelliJ IDEA, Eclipse)
 * Certifique-se de que o JDK 11 esteja configurado como o JDK do projeto
 
@@ -53,7 +53,7 @@ DEPENDÊNCIAS  | REFERÊNCIA
 ------------ | ---------------
 SPRING BOOT STARTER PARENT | [STARTER PARENT](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent)
 SPRING BOOT STARTER | [SPRING BOOT STARTER](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter)
-CAMADA DE DOMAIN | [DOMAIN](URL DOMAIN)
+CAMADA DE DOMAIN | [DOMAIN](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/domain.xml)
 
 ### Camada de infra.data
 
@@ -65,8 +65,8 @@ H2 DATABASE | [H2](https://mvnrepository.com/artifact/com.h2database/h2)
 FLYWAY CORE | [FLYWAY CORE](https://mvnrepository.com/artifact/org.flywaydb/flyway-core)
 FLYWAY MYSQL | [FLYWAY MYSQL](https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql)
 MYSQL | [MYSQL](https://mvnrepository.com/artifact/mysql/mysql-connector-java)
-CAMADA DE DOMAIN | [DOMAIN](URL DOMAIN)
-CAMADA DE APP | [APP](URL APP)
+CAMADA DE DOMAIN | [DOMAIN](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/domain.xml)
+CAMADA DE APP | [APP](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/app.xml)
 
 ### Camada de infra.ioc
 
@@ -78,9 +78,9 @@ SWAGGER UI | [SWAGGER UI](https://mvnrepository.com/artifact/io.springfox/spring
 SPRING WEB | [SPRING WEB](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 SPRING SECURITY| [SPRING SECURITY](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security)
 JAVA JWT | [JAVA JWT](https://mvnrepository.com/artifact/com.auth0/java-jwt)
-CAMADA DE DOMAIN | [DOMAIN](URL DOMAIN)
-CAMADA DE APP | [APP](URL APP)
-CAMADA DE INFRA.DATA | [INFRA.DATA](URL INFRA.DATA)
+CAMADA DE DOMAIN | [DOMAIN](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/domain.xml)
+CAMADA DE APP | [APP](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/app.xml)
+CAMADA DE INFRA.DATA | [INFRA.DATA](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/infra.data.xml)
 
 ### Camada de api
 
@@ -89,51 +89,59 @@ DEPENDÊNCIAS  | REFERÊNCIA
 SPRING BOOT STARTER PARENT | [STARTER PARENT](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent)
 SPRING WEB | [SPRING WEB](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 SPRING DEV TOOLS | [SPRING DEV TOOLS](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
-CAMADA DE INFRA.IOC | [INFRA.DATA](URL INFRA.IOC)
+CAMADA DE INFRA.IOC | [INFRA.DATA](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/infra.ioc.xml)
 
 ===========================================================================
 
-##### Voce também pode acessar o diagrama de classes abaixo clicando aqui [MERMAID_CLASS_DIAGRAM](https://mermaid.live/view#pako:eNrlWW1v2zYQ_iuC9iVd48BJ8yoEBuw4ad3mxbAdDB0MBIzEOFplUqOkpG6X_7476o2kaNnbpwFLAEcin-d4d7w7Hp2frs8D6nquH5EkGYZkIchyzhz4CUJB_TTkzLme5CP5p0Q6H8mSXrI0TFfOz3wcfzpOGHjONBUhW6ijgIuobSLxuYCJIc8eI6pOrCgRnjNiKV1QoU4sKBNWUXFE0iculoltMlwu7kVk1eCZi3RIE1-EMVprw0ScLdZC3ubMdMx1mKTbO4cBo1XkgKICMDv-ostbSGa9FeYc6uEZGrWvYNP6sV7eU3XRnM-TMHeNtmXGMhMelUHjbOMZAfjbTd65T6jY3tl0SUJrHMQg65WLtXpAWKETz2sbelZ1Zo8PGWj0IDmmRnK0XMFzrr4Y08hsTssV8LeOsOHsDmXrVjbyrJFfjbxq5JM1j5r505Y3LfnypluBDl1jyZqkqLk3IdvWCQ2b_4k1hvMx2qp1jWCqoCX4c0wmVKYGFzI6z89D0EI8EZ_2IHzGsCuh7yxp-syDxEm5E8Mk-N4hzsXkfthwWKu0904ChvrPgxX6dSeCj1HlmHdF-BauGwv-R17dJfEpZMFgNQp2QpWgFhbLzrUqo-CrkrEtAX28wdJc4Uv0_462C6D2ndxBEp3XlUFy6HdQOlnHeuSQmoRpimCub1CkFDopStWOWbNU0bWjR0wCcX_ktuTY3jtbkWkGfr17Vp0WFDZ-513xOMN0qN6-QohULyOZB9Xr1EgCnDAWn1LxEvoUl82N6UfA12ML0mNDUAFC4efxCrjWiM2lWsJwo0pFlelpxbSONI0fcRLg4GCFn1iEGoEiKwBNYTCROUde6E4mI_bPjMqVvCKCy_eSlFudxQFJDbG7Dkq4lzOVgOpV5wc0ok1-eXxJ9rh-Ae4LDwObbwqZPaxkLyQKcbUBhfJD69V32vTKtS7O3jrZqiWNTNIcLd0mZH7Vbpto77ocddsvOEuBG1HxXwrEbbTaEIumiP9nOBpxYzrlX4fOpRAc_JDEnCW0OMFxSG8eliCCLGPQivskGoLNMxjDOQfvStOUpBn0RlBz5RjAE7IwepVGx3IBzJscmZdsyrIlFUSewGDy5c149vXhejSdzdnH_s3lw-3d7OHq7v4WeoBfMDszau2iLr_7VNbqT4QFhYfyxyS3DbqKZ8FfmfO4gifq9McjUB36C-g0Ejwlwx80cF6JfsRPMoaOqKSj2CsuHJGPF6I1CmxlfxxWDNn6wphD4hAOyXJUowwTTLR-HEMTJD0hPaO858cZRJZ5FBWuHGRoKcTHU7jI3Zo_Z0KhV4vDzvNM-AWrEDGVQxiEE4rZRh4xjtYCPU2N6StZLGTWtikAHkD5Q-5_ozJmYGDEnjgO9vNHTepv9LFVYgfiUCR3IoSeSmnS38vhEk0FigdRNy9-PVaso1zeO52_enqf6kFQpZQFSY5T-h-JrbnQUi_jiC4pS5NSqnLz3SjZ6CEr6bUMcwXzmtq6hK3tlARDirmIcp9slW90qRJbc02pytW3VarRckpszbW53OZCrUfE0E4zwSpGeRBXcFWTEUNavUMNsL5tNUHtpSpn2IBqL1DZZwPmSijlv9KhoDe1tYEVK3RtTbBiga6tCVQsMLWtDSsbDMX9FkDeUBgY3e_qVVkB6v4uj2Rtsy0OXKOVgtmoWYVt102D2bVTK9Hc3Z-7nc7c7e7t_Tp3B-qXTp9IYpYXCXfa8EaaV_L3beA6cQ09tK9zCnCdj1uA4Ww3z-hOp2e0sYiVh3YLWg9vhQEcrbFBginFcwZZGAWyBUhSkfmwCxSpjWMb2ebxr9QnC-Mc9re5nqreMk5la133E7iK0hMZUXbL0ysOh-82-DlrtBFOnfuqw_AZWomknWG6uWbhr63xQN0aEvGbUrzy6y1CK7Q-99slUj8TEHsFFr0PTH0Uz_p-QOIULaj2zmC2rjK4EKs43Qb5-TW9T8NoHeiCLyEsKXbLF1mS8mU_gyCE-MoBV2GUVu45LyoFXnTKS4MNrti0USaqpRsury8BNMQqm4vwh12hO-bTcXV_alHALqJ1_Tlzd124B0CLG7ieK78tnrtgC1w4XA8eAyK-zV1o2wBHspRPV8x3PUhguuvmN7fifzblYEyY6_10v7te5-hg76zbPTk9ODk77B4eHR7vuivXO_qwd3zaPTw7-HB8sN_tdk_fdt0fnIOA_b3uydnJyfHB6QmwTo9ODqW43-VkLp0GeETfFP8ywj9vfwNnwj3Q)
 
 
 ````mermaid
 ---
-title: REGRA DE DEPENDENCIA
+title: Diagrama ER
 ---
 
-graph LR
+erDiagram
+    TB_CATEGORY ||--|{ TB_PRODUCT : has
+    TB_USER ||--|{ TB_USER_ROLES : user_id
 
-subgraph Domain
-    D(Domain)
-end
+TB_CATEGORY {
+        UUID VARCHAR(36) PK
+        name VARCHAR(255)
+    }
 
-subgraph Application
-    A(Application)
-    A -->|Depende de Domain| D
-end
+TB_PRODUCT {
+        UUID VARCHAR(36) PK
+        name VARCHAR(255)
+        description VARCHAR(255)
+        price DOUBLE
+        stock INT
+        image VARCHAR(255)
+        category_uuid VARCHAR(255)
+        TB_CATEGORY_UUID VARCHAR(36) FK
+    }
 
-subgraph InfrastructureData
-    ID(Infra.Data)
-    ID -->|Depende de Domain| D
-end
+TB_USER {
+        UUID VARCHAR(36) PK
+        username VARCHAR(255)
+        password VARCHAR(255)
+    }
 
-subgraph InfrastructureIoC
-    II(Infra.IoC)
-    II -->|Depende de Domain| D
-    II -->|Depende de Application| A
-    II -->|Depende de InfrastructureData| ID
-end
-
-subgraph API
-    API(API)
-    API -->|Depende de Infra.IoC| II
-end
-
-
+TB_USER_ROLES {
+        user_id VARCHAR(36) FK
+        ROLES VARCHAR(36)
+        TB_USER_UUID VARCHAR(36) FK
+    }
+    
 
 ````
 
 ===========================================================================
+
+
+### Regra de depêndencia deste projeto usando Clean Archtecture
+
+![Regra de dependencia Clean Archtecture](/api/images/regra_dependencia_clean_archh.png)
+
 
 
 ===========================================================================
