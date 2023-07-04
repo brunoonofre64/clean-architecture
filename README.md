@@ -140,7 +140,7 @@ TB_USER_ROLES {
 
 ### Regra de depêndencia deste projeto usando Clean Archtecture
 
-![Regra de dependencia Clean Archtecture](/api/images/regra_dependencia_clean_archh.png)
+![Regra de dependencia Clean Archtecture](clean-architecture/api/images/regra_dependencia_clean_archh.png)
 
 
 
