@@ -89,7 +89,7 @@ DEPENDÊNCIAS  | REFERÊNCIA
 SPRING BOOT STARTER PARENT | [STARTER PARENT](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent)
 SPRING WEB | [SPRING WEB](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)
 SPRING DEV TOOLS | [SPRING DEV TOOLS](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools)
-CAMADA DE INFRA.IOC | [INFRA.DATA](https://github.com/brunoonofre64/clean-architecture/blob/master/clean-architecture/api/dependecies/infra.ioc.xml)
+
 
 ===========================================================================
 
